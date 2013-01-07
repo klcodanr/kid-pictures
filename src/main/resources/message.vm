@@ -32,7 +32,7 @@
 			<div class="fifteen columns content">
 				<div id="header" class="box">
 					<a href="./"><img src="images/sarah-header.png" /></a>
-					<h1>Sarah Picture of the Day from $dateTool.format('MMM d, yyyy',$emailMessage.sentDate)</h1>
+					<h3>Sarah Picture of the Day from $dateTool.format('MMM d, yyyy',$emailMessage.sentDate)</h3>
 				</div>
 				<ul id="nav" class="box">
 					<li><a href="index.html">Home</a></li>
