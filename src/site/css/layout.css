@@ -35,8 +35,9 @@ footer{
 }
 
 #header * {
-    display: inline;
-    vertical-align: middle;
+    display: block;
+    margin: 0 auto;
+  		text-align: center;
 }
 
 .images {
@@ -113,13 +114,7 @@ footer{
 	@media only screen and (min-width: 768px) and (max-width: 959px) {}
 
 	/* All Mobile Sizes (devices and browser) */
-	@media only screen and (max-width: 767px) {
-		#header * {
-		    display: block;
-		    margin: 0 auto;
-    		text-align: center;
-		}
-	}
+	@media only screen and (max-width: 767px) {	}
 	
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
