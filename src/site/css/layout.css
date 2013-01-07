@@ -107,24 +107,26 @@ footer{
 ================================================== */
 
 	/* Smaller than standard 960 (devices and browsers) */
-	@media only screen and (max-width: 959px) {}
+	@media only screen and (max-width: 959px) {	}
 
 	/* Tablet Portrait size to standard 960 (devices and browsers) */
 	@media only screen and (min-width: 768px) and (max-width: 959px) {}
 
 	/* All Mobile Sizes (devices and browser) */
-	@media only screen and (max-width: 767px) {}
+	@media only screen and (max-width: 767px) {
+		#header * {
+		    display: block;
+		    margin: 0 auto;
+    		text-align: center;
+		}
+	}
+	
 
 	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 	@media only screen and (min-width: 480px) and (max-width: 767px) {
 		.container .column > *, .container .columns  > *  {
 			padding-left: 5px;
 			padding-right: 5px;
-		}
-		#header * {
-		    display: block;
-		    margin: 0 auto;
-    		text-align: center;
 		}
 	}
 
@@ -133,11 +135,6 @@ footer{
 		.container .column > *, .container .columns > * {
 			padding-left: 2px;
 			padding-right: 2px;
-		}
-		#header * {
-		    display: block;
-		    margin: 0 auto;
-    		text-align: center;
 		}
 	}
 
