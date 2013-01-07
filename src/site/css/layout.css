@@ -123,6 +123,8 @@ footer{
 		}
 		#header * {
 		    display: block;
+		    margin: 0 auto;
+    		text-align: center;
 		}
 	}
 
@@ -134,6 +136,8 @@ footer{
 		}
 		#header * {
 		    display: block;
+		    margin: 0 auto;
+    		text-align: center;
 		}
 	}
 
