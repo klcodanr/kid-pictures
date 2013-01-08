@@ -47,7 +47,7 @@
 							#set( $emailMessage = $messages.get($index) )
 							<li class="item">
 								<div class="subheader box">
-									<h3><a href="$dateTool.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)$ex">From $emailMessage.sender on $dateTool.format('MMM d, yyyy',$emailMessage.sentDate)</a></h3>
+									<h3><a href="$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)$ex">From $emailMessage.sender on $dateTool.format('MMM d, yyyy',$emailMessage.sentDate)</a></h3>
 								</div>
 								<div class="message box">
 									$emailMessage.message
