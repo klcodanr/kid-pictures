@@ -1,0 +1,141 @@
+/* Reset */
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	line-height: 1.5;
+}
+
+article,aside,figcaption,figure,footer,header,hgroup,nav,section {
+	display: block;
+}
+
+h1,h2,h3,h4 {
+	margin: 0;
+	line-height: 1.25;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h2 {
+	font-size: 1.5em;
+}
+
+h3 {
+	font-size: 1.2em;
+}
+
+ul,ol {
+	margin: 1em 0;
+	padding-left: 40px;
+}
+
+p,figure {
+	margin: 1em 0;
+}
+
+a img {
+	border: none;
+}
+
+sup,sub {
+	line-height: 0;
+}
+
+/* Page Styles */
+a{
+	color: grey;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+body {
+	background-image:url('../images/pattern4.jpg');
+}
+
+.box {
+	border: 1px solid silver;
+	padding: 10px;
+	margin: 10px 0;
+	background-color: white;
+}
+
+#footer{
+	font-size: x-small;
+}
+
+#header * {
+    display: inline;
+    vertical-align: middle;
+}
+
+.images {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.images img {
+	width: 100px;
+}
+
+.images li {
+	height: 100px;
+	overflow: hidden;
+	display: inline-block;
+	margin:10px;
+	border:1px solid silver;
+}
+
+.item {
+	margin: 20px 0;
+	border: 1px dotted silver;
+	list-style:none;
+	background-color:pink;
+	padding:5px;
+}
+
+#messages {
+	padding: 0;
+}
+#messages li{
+	list-style:none;
+}
+
+.morecontent  span {
+    display: none;
+}
+
+#nav li {
+    display: inline-block;
+    list-style: none;
+}
+
+#nav a {
+    border: 1px solid grey;
+    color: grey;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+    padding: 2px 10px;
+}
+
+#nav a:hover {
+    background-color: grey;
+    color:white;
+    text-decoration:none;
+}
+
+.subheader a{
+	color:black;
+}
+
+#surround {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}
