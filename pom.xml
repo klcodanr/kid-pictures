@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.klco</groupId>
+	<artifactId>sarah-pictures</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<!-- System Properties -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.klco.email2html</groupId>
+				<artifactId>email2html</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<id>download-code</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>extractEmails</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<templateDir>${basedir}/src/main/resources</templateDir>
+					<folder>Sarah</folder>
+					<url>imap.gmail.com</url>
+					<serverId>gmail</serverId>
+					<outputDir>/var/www/vhosts/sarah</outputDir>
+					<indexTemplateNames>index.html.vm,all.html.vm</indexTemplateNames>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>/var/www/vhosts/sarah</outputDirectory>
+							<resources>
+								<resource>
+									<directory>src/site</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+	</dependencies>
+</project>
