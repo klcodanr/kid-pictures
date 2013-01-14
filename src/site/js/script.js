@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	$('.images').each(function(){
-		$(this).find('a').lightBox({maxHeight: 450, maxWidth: 900});
+		$(this).find('a').lightBox({maxHeight: ($(window).height() * 0.8), maxWidth: ($(window).width() * 0.8)});
 	});
 	
 	var showChar = 100;

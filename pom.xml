@@ -36,6 +36,19 @@
 					<serverId>gmail</serverId>
 					<outputDir>/var/www/vhosts/sarah</outputDir>
 					<indexTemplateNames>index.html.vm,all.html.vm</indexTemplateNames>
+					<renditions>
+						<rendition>
+							<name>thumbnail</name>
+							<width>100</width>
+							<height>100</height>
+							<fill>true</fill>
+						</rendition>
+						<rendition>
+							<name>web</name>
+							<width>800</width>
+							<height>800</height>
+						</rendition>
+					</renditions>
 				</configuration>
 			</plugin>
 
