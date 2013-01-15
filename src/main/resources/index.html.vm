@@ -43,14 +43,14 @@
 					#set($month = '')
 					<ul id="messages">
 						#foreach( $message in $messages )
-						#set($thisMonth = $dateTool.format('MMMM',$message.sentDate))
+						#set($thisMonth = $date.format('MMMM',$message.sentDate))
 						#if($month != $thisMonth)
 						<li>
 							<h3>$thisMonth</h3>
 						</li>
 						#set($month = $thisMonth)
 						#end
-						<li><a href="$dateTool.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)$ex">From $message.sender on $dateTool.format('MMM d, yyyy',$message.sentDate)</a></li>
+						<li><a href="$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)$ex">From $message.sender on $date.format('MMM d, yyyy',$message.sentDate)</a></li>
 						#end
 					</ul>
 				</div>

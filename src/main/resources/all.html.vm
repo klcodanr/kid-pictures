@@ -47,7 +47,7 @@
 							#set( $emailMessage = $messages.get($index) )
 							<li class="item">
 								<div class="subheader box">
-									<h3><a href="$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)$ex">From $emailMessage.sender on $dateTool.format('MMM d, yyyy',$emailMessage.sentDate)</a></h3>
+									<h3><a href="$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)$ex">From $emailMessage.sender on $date.format('MMM d, yyyy',$emailMessage.sentDate)</a></h3>
 								</div>
 								<div class="message box">
 									$emailMessage.message
@@ -56,9 +56,9 @@
 									<ul class="images box">
 										#foreach( $attachment in $emailMessage.attachments )
 											<li>
-												<a href="$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/web-$attachment.name"
-													title="Picture of the Day from $dateTool.format('MMM d, yyyy',$emailMessage.sentDate): $attachment.name &lt;a href=&quot;./$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/$attachment.name&quot;&gt;Download Original&lt;/a%gt;">
-													<img src="$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/thumbnail-$attachment.name" />
+												<a href="$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/web-$esc.url($attachment.name)"
+													title="Picture of the Day from $date.format('MMM d, yyyy',$emailMessage.sentDate): $attachment.name &lt;a href=&quot;./$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/$esc.url($attachment.name)&quot;&gt;Download Original&lt;/a%gt;">
+													<img src="$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/thumbnail-$esc.url($attachment.name)" />
 												</a>
 											</li>
 										#end

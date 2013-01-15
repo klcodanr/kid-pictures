@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Sarah Picture of the Day From $dateTool.format('MMM d, yyyy',$emailMessage.sentDate)</title>
+		<title>Sarah Picture of the Day From $date.format('MMM d, yyyy',$emailMessage.sentDate)</title>
 		<meta content="Dan Klco" name="author" />
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -32,7 +32,7 @@
 			<div class="fifteen columns content">
 				<div id="header" class="box">
 					<a href="./"><img src="images/sarah-header.png" /></a>
-					<h3>Sarah Picture of the Day from $dateTool.format('MMM d, yyyy',$emailMessage.sentDate)</h3>
+					<h3>Sarah Picture of the Day from $date.format('MMM d, yyyy',$emailMessage.sentDate)</h3>
 				</div>
 				<ul id="nav" class="box">
 					<li><a href="index.html">Home</a></li>
@@ -48,9 +48,9 @@
 				<ul class="box images">
 					#foreach( $attachment in $emailMessage.attachments )
 					<li>
-						<a href="./$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/web-$attachment.name"
-							title="Picture of the Day from $dateTool.format('MMM d, yyyy',$emailMessage.sentDate): $attachment.name &lt;a href=&quot;./$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/$attachment.name&quot;&gt;Download Original&lt;/a%gt;">
-							<img src="$dateTool.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/thumbnail-$attachment.name" />
+						<a href="./$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/web-$esc.url($attachment.name)"
+							title="Picture of the Day from $date.format('MMM d, yyyy',$emailMessage.sentDate): $attachment.name &lt;a href=&quot;./$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/$esc.url($attachment.name)&quot;&gt;Download Original&lt;/a%gt;">
+							<img src="$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/thumbnail-$esc.url($attachment.name)" />
 						</a>
 					</li>
 					#end
