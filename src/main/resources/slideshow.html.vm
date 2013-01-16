@@ -93,7 +93,7 @@
 	<body>
 		<div id="back-container">
 			<h3 id="title">Slideshow </h3>
-			<a href="#" onclick="window.history.go(-1)">&lt;&lt; Go Back</a>
+			<a href="slideshows.html">&lt;&lt; Go Back</a>
 		</div>
 		<div id="prevthumb"></div>
 		<div id="nextthumb"></div>
