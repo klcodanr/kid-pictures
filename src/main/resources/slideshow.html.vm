@@ -35,6 +35,7 @@
 							{image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/web-$name", title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)", thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name" },
 						#end
 					#end
+					]
 				}
 				var date = window.location.search.substr(1).split('=')[1];
 				$.supersized({
