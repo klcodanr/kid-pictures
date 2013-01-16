@@ -37,7 +37,19 @@
 					#end
 					]
 				}
+				#set($month = '')
+				var titles = {
+					#foreach( $message in $messages )
+						#set($thisMonth = $date.format('MMMM',$message.sentDate))
+						#set($thisYear = $date.format('yyyy',$message.sentDate))
+						#if($month != $thisMonth)
+							'$date.format('yyyyMM',$message.sentDate)' : ' of $thisMonth $thisYear',
+						#end
+					#end
+				}
 				var date = window.location.search.substr(1).split('=')[1];
+				document.title = document.title + titles[date];
+				$('#title').append(titles[date]);
 				$.supersized({
 					slide_interval : 6000,
 					transition : 6,
@@ -74,6 +86,7 @@
 	</head>
 	<body>
 		<div id="back-container">
+			<h3 id="title">Slideshow </h3>
 			<a href="#" onclick="window.history.back()">&lt;&lt; Go Back</a>
 		</div>
 		<div id="prevthumb"></div>
