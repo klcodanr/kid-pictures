@@ -3,7 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Sarah Picture of the Day | All Messages</title>
+		<title>Sarah Picture of the Day | Slideshow</title>
 		<meta content="Dan Klco" name="author" />
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -18,20 +18,30 @@
 		<link rel="shortcut icon" href="favicon.png" />
 		<script type="text/javascript">
 			jQuery(function($){
-				$.supersized({
-					slide_interval : 6000,
-					transition : 6,
-					transition_speed : 1000,							
-					slide_links	: 'blank',	
-					slides : [
-						#foreach( $message in $messages )
+				#set($month = '')
+				var slideshows = {
+					'empty': [
+					#foreach( $message in $messages )
+						#set($thisMonth = $date.format('MMMM',$message.sentDate))
+						#set($thisYear = $date.format('yyyy',$message.sentDate))
+						#if($month != $thisMonth)
+							],
+							'$date.format('yyyyMM',$message.sentDate)' : [
 							#foreach( $attachment in $message.attachments )
 								#set($name = $attachment.name.replace("#", "%23"))
 								#set($name = $name.replace("?", "%3F"))
 								{image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/web-$name", title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)", thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name" },
 							#end
 						#end
-					]
+					#end
+				}
+				var date = window.location.search.substr(1).split('=')[1];
+				$.supersized({
+					slide_interval : 6000,
+					transition : 6,
+					transition_speed : 1000,							
+					slide_links	: 'blank',	
+					slides : slideshows[date]
 				});
 	    	});
 			var _gaq = _gaq || [];

@@ -37,6 +37,7 @@
 				<ul id="nav" class="box">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="all.html">View All</a></li>
+					<li><a href="slideshows.html">Slideshow</a></li>
 				</ul>
 				<div id="message" class="box">
 					$emailMessage.message
@@ -45,18 +46,18 @@
 					</p>
 				</div>
 				#if($emailMessage.attachments.size() > 0)
-				<ul class="box images">
-					#foreach( $attachment in $emailMessage.attachments )
-					#set ( $name = $attachment.name.replace("#", "%23") )
-					#set ( $name = $name.replace("?", "%3F") )
-					<li>
-						<a href="./$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/web-$name"
-							title="Picture of the Day from $date.format('MMM d, yyyy',$emailMessage.sentDate): $attachment.name &lt;a href=&quot;./$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/$name&quot;&gt;Download Original&lt;/a%gt;">
-							<img src="$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/thumbnail-$name" />
-						</a>
-					</li>
-					#end
-				</ul>
+					<ul class="box images">
+						#foreach( $attachment in $emailMessage.attachments )
+							#set ( $name = $attachment.name.replace("#", "%23") )
+							#set ( $name = $name.replace("?", "%3F") )
+							<li>
+								<a href="./$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/web-$name"
+									title="Picture of the Day from $date.format('MMM d, yyyy',$emailMessage.sentDate): $attachment.name &lt;a href=&quot;./$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/$name&quot;&gt;Download Original&lt;/a%gt;">
+									<img src="$date.format('yyyy-MM-dd-HH-mm-ss',$emailMessage.sentDate)/thumbnail-$name" />
+								</a>
+							</li>
+						#end
+					</ul>
 				#end
 				<footer class="box">
 					<p>
