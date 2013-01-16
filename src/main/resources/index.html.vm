@@ -38,6 +38,7 @@
 				<ul id="nav" class="box">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="all.html">View All</a></li>
+					<li><a href="slideshow.html">Slideshow</a></li>
 				</ul>
 				<div id="message" class="box">
 					#set($month = '')

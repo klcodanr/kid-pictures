@@ -1,0 +1,96 @@
+#set($ex='.html')
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Sarah Picture of the Day | All Messages</title>
+		<meta content="Dan Klco" name="author" />
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
+		<link rel="stylesheet" href="css/supersized.css" type="text/css"  />
+		<link rel="stylesheet" href="css/supersized.shutter.css" type="text/css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
+		<script type="text/javascript" src="js/supersized.shutter.js"></script>
+		<link rel="shortcut icon" href="favicon.png" />
+		<script type="text/javascript">
+			jQuery(function($){
+				$.supersized({
+					slide_interval : 3000,
+					transition : 1,
+					transition_speed : 700,							
+					slide_links	: 'blank',	
+					slides : [
+						#foreach( $message in $messages )
+							#foreach( $attachment in $message.attachments )
+								#set($name = $attachment.name.replace("#", "%23"))
+								#set($name = $name.replace("?", "%3F"))
+								{
+									image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/$name",
+									title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)",
+									thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name"
+								}
+								#if(!$foreach.isLast())
+								,
+								#end
+							#end
+						#end
+					]
+				});
+	    	});
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-37209568-2']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		
+		<style type="text/css">
+			#back-container {
+				margin: 15px;
+				padding:10px;
+				display:inline;
+				float:left;
+				clear:both;
+				color:white;
+				background:url('images/bg-black.png');
+				font:11px Helvetica, Arial, sans-serif;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="back-container">
+			<a href="#" onclick="window.history.back()">&lt;&lt; Go Back</a>
+		</ul>
+		<div id="prevthumb"></div>
+		<div id="nextthumb"></div>
+		<a id="prevslide" class="load-item"></a>
+		<a id="nextslide" class="load-item"></a>
+		<div id="thumb-tray" class="load-item">
+			<div id="thumb-back"></div>
+			<div id="thumb-forward"></div>
+		</div>
+		<div id="progress-back" class="load-item">
+			<div id="progress-bar"></div>
+		</div>
+		<div id="controls-wrapper" class="load-item">
+			<div id="controls">
+				<a id="play-button"><img id="pauseplay" src="images/pause.png"/></a>
+				<div id="slidecounter">
+					<span class="slidenumber"></span> / <span class="totalslides"></span>
+				</div>
+				<div id="slidecaption"></div>
+				
+				<!--Thumb Tray button-->
+				<a id="tray-button"><img id="tray-arrow" src="images/button-tray-up.png"/></a>
+				<ul id="slide-list"></ul>
+			</div>
+		</div>
+	</body>
+</html>
