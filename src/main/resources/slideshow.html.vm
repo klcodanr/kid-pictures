@@ -27,11 +27,12 @@
 						#if($month != $thisMonth)
 							],
 							'$date.format('yyyyMM',$message.sentDate)' : [
-							#foreach( $attachment in $message.attachments )
-								#set($name = $attachment.name.replace("#", "%23"))
-								#set($name = $name.replace("?", "%3F"))
-								{image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/web-$name", title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)", thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name" },
-							#end
+							#set($month = $thisMonth)
+						#end
+						#foreach( $attachment in $message.attachments )
+							#set($name = $attachment.name.replace("#", "%23"))
+							#set($name = $name.replace("?", "%3F"))
+							{image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/web-$name", title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)", thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name" },
 						#end
 					#end
 				}
