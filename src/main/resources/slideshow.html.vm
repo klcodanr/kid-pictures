@@ -63,7 +63,7 @@
 	<body>
 		<div id="back-container">
 			<a href="#" onclick="window.history.back()">&lt;&lt; Go Back</a>
-		</ul>
+		</div>
 		<div id="prevthumb"></div>
 		<div id="nextthumb"></div>
 		<a id="prevslide" class="load-item"></a>
