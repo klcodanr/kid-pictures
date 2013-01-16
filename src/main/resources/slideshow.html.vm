@@ -29,7 +29,6 @@
 								#set($name = $attachment.name.replace("#", "%23"))
 								#set($name = $name.replace("?", "%3F"))
 								{image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/web-$name", title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)", thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name" },
-								#end
 							#end
 						#end
 					]
