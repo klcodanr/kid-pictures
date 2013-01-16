@@ -35,7 +35,7 @@
 					<url>imap.gmail.com</url>
 					<serverId>gmail</serverId>
 					<outputDir>/var/www/vhosts/sarah</outputDir>
-					<indexTemplateNames>index.html.vm,all.html.vm,slideshow.html.vm,slideshows.html.vm</indexTemplateNames>
+					<indexTemplateNames>index.html.vm,all.html.vm,slideshow.html.vm,slideshows.html.vm,404.html.vm</indexTemplateNames>
 					<renditions>
 						<rendition>
 							<name>thumbnail</name>
