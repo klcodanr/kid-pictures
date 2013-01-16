@@ -43,7 +43,7 @@
 						#set($thisMonth = $date.format('MMMM',$message.sentDate))
 						#set($thisYear = $date.format('yyyy',$message.sentDate))
 						#if($month != $thisMonth)
-							'$date.format('yyyyMM',$message.sentDate)' : ' of $thisMonth $thisYear',
+							'$date.format('yyyyMM',$message.sentDate)' : ' from $thisMonth $thisYear',
 						#end
 					#end
 				}
@@ -79,8 +79,13 @@
 			}
 			#back-container a{
 				font-weight: bold;
-				font:18px Helvetica, Arial, sans-serif;
+				font:18px "Helvetica Neue", Helvetica, Arial, sans-serif;
 				color:white;
+			}
+			#back-container h3 {
+				font-weight: bold;
+				font: 24px "Helvetica Neue", Helvetica, Arial, sans-serif;
+				color: #999999;
 			}
 		</style>
 	</head>

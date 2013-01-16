@@ -33,7 +33,7 @@
 			<div class="fifteen columns content">
 				<div id="header" class="box">
 					<a href="./"><img src="images/sarah-header.png" /></a>
-					<h3>Sarah Pictures of the Day Slideshows</h3>
+					<h3>Sarah Picture of the Day Slideshows</h3>
 				</div>
 				<ul id="nav" class="box">
 					<li><a href="index.html">Home</a></li>
@@ -41,6 +41,10 @@
 					<li><a href="slideshows.html">Slideshow</a></li>
 				</ul>
 				<div id="message" class="box">
+					<h4>Slideshows</h4>
+					<p>
+						Click on a date to view a slideshow of the Sarah Photos of the Day for that month.
+					</p>
 					#set($month = '')
 					<ul id="slideshows">
 						#foreach( $message in $messages )
