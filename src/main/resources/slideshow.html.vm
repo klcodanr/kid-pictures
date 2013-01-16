@@ -44,6 +44,7 @@
 						#set($thisYear = $date.format('yyyy',$message.sentDate))
 						#if($month != $thisMonth)
 							'$date.format('yyyyMM',$message.sentDate)' : ' from $thisMonth $thisYear',
+							#set($month = $thisMonth)
 						#end
 					#end
 				}
