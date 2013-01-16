@@ -28,13 +28,7 @@
 							#foreach( $attachment in $message.attachments )
 								#set($name = $attachment.name.replace("#", "%23"))
 								#set($name = $name.replace("?", "%3F"))
-								{
-									image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/$name",
-									title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)",
-									thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name"
-								}
-								#if(!$foreach.isLast())
-								,
+								{image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/web-$name", title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)", thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name" },
 								#end
 							#end
 						#end
@@ -58,9 +52,12 @@
 				display:inline;
 				float:left;
 				clear:both;
-				color:white;
 				background:url('images/bg-black.png');
-				font:11px Helvetica, Arial, sans-serif;
+			}
+			#back-container a{
+				font-weight: bold;
+				font:18px Helvetica, Arial, sans-serif;
+				color:white;
 			}
 		</style>
 	</head>
@@ -86,10 +83,7 @@
 					<span class="slidenumber"></span> / <span class="totalslides"></span>
 				</div>
 				<div id="slidecaption"></div>
-				
-				<!--Thumb Tray button-->
 				<a id="tray-button"><img id="tray-arrow" src="images/button-tray-up.png"/></a>
-				<ul id="slide-list"></ul>
 			</div>
 		</div>
 	</body>
