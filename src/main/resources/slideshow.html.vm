@@ -19,9 +19,9 @@
 		<script type="text/javascript">
 			jQuery(function($){
 				$.supersized({
-					slide_interval : 3000,
-					transition : 1,
-					transition_speed : 700,							
+					slide_interval : 6000,
+					transition : 6,
+					transition_speed : 1000,							
 					slide_links	: 'blank',	
 					slides : [
 						#foreach( $message in $messages )
