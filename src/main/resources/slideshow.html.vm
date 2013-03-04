@@ -5,6 +5,8 @@
 		<meta charset="utf-8">
 		<title>Sarah Picture of the Day | Slideshow</title>
 		<meta content="Dan Klco" name="author" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
