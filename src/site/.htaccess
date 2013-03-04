@@ -3,10 +3,15 @@ AuthUserFile /usr/local/htpasswd/.htpasswd
 AuthGroupFile /dev/null
 AuthName "Open Sesame"
 AuthType Basic
-
 <Limit GET POST>
 require valid-user
 </Limit>
+
+# Allow Access to Icons
+<Files "apple-touch-icon.png">
+    Satisfy Any
+    Allow from all
+</Files>
 
 # 1 YEAR
 <filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
