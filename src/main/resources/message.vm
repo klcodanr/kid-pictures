@@ -3,9 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Sarah Picture of the Day From $date.format('MMM d, yyyy',$emailMessage.sentDate)</title>
-		<meta content="Dan Klco" name="author" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta content="$emailMessage.sender" name="author" />
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
