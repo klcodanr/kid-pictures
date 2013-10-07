@@ -14,15 +14,15 @@ require valid-user
 </Files>
 
 # 1 YEAR
-<filesMatch ".(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
+<filesMatch "(?i)\.(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
 Header set Cache-Control "max-age=29030400, public"
 </filesMatch>
 # 1 WEEK
-<filesMatch ".(xml|txt|css|js)$">
+<filesMatch "(?i)\.(xml|txt|css|js)$">
 Header set Cache-Control "max-age=604800, public"
 </filesMatch>
 # 10 MIN
-<filesMatch ".(html|htm|php)$">
+<filesMatch "(?i)\.(html|htm|php)$">
 Header set Cache-Control "max-age=600, private, proxy-revalidate"
 </filesMatch>
 
