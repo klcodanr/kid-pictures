@@ -24,16 +24,16 @@
 				var slideshows = {
 					'empty': [
 					{% for message in site.posts %}
-						{% capture thisMonth %}{{ message.sentDate | date: %B }}{% endcapture %}
-						{% capture year %}{{ message.sentDate | date: %Y }}{% endcapture %}
+						{% capture thisMonth %}{{ message.sentDate | date: "%B" }}{% endcapture %}
+						{% capture year %}{{ message.sentDate | date: "%Y" }}{% endcapture %}
 						{% if month != thisMonth %}
 							],
-							'{{ year }}{{ message.sentDate | date: %m }}' : [
+							'{{ year }}{{ message.sentDate | date: "%m" }}' : [
 							{% capture month %}{{ thisMonth }}{% endcapture %}
 						{% endif %}
 						{% for attachment in message.attachments %}
 							{% capture attachment %}{{ attachment | replace:'#','%23' | replace:'?','%3F' }}{% endcapture %}
-							{image: "/images/posts/{{ sentDate | date: %F-%H-%M }}/web-{{attachment}}", title: "Picture of the Day from {{ sentDate | date: %B %d, %Y}}", thumb: "/images/posts/{{ sentDate | date: %F-%H-%M }}/thumbnail-{{attachment}}" },
+							{image: "/images/posts/{{ message.sentDate | date: '%F-%H-%M-%S' }}/web-{{attachment}}", title: "Picture of the Day from {{ message.sentDate | date: '%B %d, %Y' }}", thumb: "/images/posts/{{ message.sentDate | date: '%F-%H-%M-%S' }}/thumbnail-{{attachment}}" },
 						{% endfor %}
 					{% endfor %}
 					]
@@ -41,10 +41,10 @@
 				{% assign month="" %}
 				var titles = {
 					{% for message in site.posts %}
-						{% capture thisMonth %}{{ message.sentDate | date: %B }}{% endcapture %}
-						{% capture year %}{{ message.sentDate | date: %Y }}{% endcapture %}
+						{% capture thisMonth %}{{ message.sentDate | date: "%B" }}{% endcapture %}
+						{% capture year %}{{ message.sentDate | date: "%Y" }}{% endcapture %}
 						{% if month != thisMonth %}
-							'{{ year }}{{ message.sentDate | date: %m }}' : ' from $thisMonth $thisYear',
+							'{{ year }}{{ message.sentDate | date: "%m" }}' : ' from {{ thisMonth }} {{ year }}',
 							{% capture month %}{{ thisMonth }}{% endcapture %}
 						{% endif %}
 					{% endfor %}

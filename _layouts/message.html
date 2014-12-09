@@ -1,4 +1,4 @@
---
+---
 layout: default
 ---
 
@@ -13,9 +13,9 @@ layout: default
 		{% for attachment in page.attachments %}
 			{% capture attachment %}{{ attachment | replace:'#','%23' | replace:'?','%3F' }}{% endcapture %}
 			<li>
-				<a href="/images/posts/{{ sentDate | date: %F-%H-%M }}/web-{{attachment}}"
-					title="Picture of the Day from {{ sentDate | date: %B %d, %Y}} {{ attachment }} &lt;a href=&quot;/images/posts/{{ sentDate | date: %F-%H-%M }}/{{attachment}}&quot;&gt;Download Original&lt;/a%gt;">
-					<img src="/images/posts/{{ sentDate | date: %F-%H-%M }}/thumbnail-{{attachment}}" />
+				<a href="/images/posts/{{ page.sentDate | date: '%F-%H-%M-%S' }}/web-{{attachment}}"
+					title="Picture of the Day from {{ page.sentDate | date: "%B %d, %Y" }} {{ attachment }} &lt;a href=&quot;/images/posts/{{ page.sentDate | date: "%F-%H-%M-%S" }}/{{attachment}}&quot;&gt;Download Original&lt;/a%gt;">
+					<img src="/images/posts/{{ page.sentDate | date: '%F-%H-%M-%S' }}/thumbnail-{{attachment}}" />
 				</a>
 			</li>
 		{% endfor %}

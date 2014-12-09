@@ -11,11 +11,11 @@ title: Slideshows
 	{% assign month = "" %}
 	<ul id="slideshows">
 		{% for message in site.posts %}
-			{% capture thisMonth %}{{ message.sentDate | date: %B }}{% endcapture %}
-			{% capture year %}{{ message.sentDate | date: %Y }}{% endcapture %}
+			{% capture thisMonth %}{{ message.sentDate | date: "%B" }}{% endcapture %}
+			{% capture year %}{{ message.sentDate | date: "%Y" }}{% endcapture %}
 			{% if month != thisMonth %}
 				<li>
-					<a href="slideshow.html?date={{ year }}{{ message.sentDate | date: %m }}">{{ thisMonth }} {{ year }}</a>
+					<a href="slideshow.html?date={{ year }}{{ message.sentDate | date: '%m' }}">{{ thisMonth }} {{ year }}</a>
 				</li>
 				{% capture month %}{{ thisMonth }}{% endcapture %}
 			{% endif %}

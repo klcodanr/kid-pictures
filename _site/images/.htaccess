@@ -1,5 +1,0 @@
-# Don't require login for the icons
-<Files "apple-touch-icon*.png">
-    Satisfy Any
-    Allow from all
-</Files>

@@ -1,6 +1,14 @@
 $(document).ready(function(){
 	$('.images').each(function(){
-		$(this).find('a').lightBox({maxHeight: ($(window).height() * 0.8), maxWidth: ($(window).width() * 0.8)});
+		$(this).find('a').lightBox({
+			maxHeight: ($(window).height() * 0.8), 
+			maxWidth: ($(window).width() * 0.8),
+			imageLoading:			'/images/lightbox-ico-loading.gif',		// (string) Path and the name of the loading icon
+			imageBtnPrev:			'/images/lightbox-btn-prev.gif',			// (string) Path and the name of the prev button image
+			imageBtnNext:			'/images/lightbox-btn-next.gif',			// (string) Path and the name of the next button image
+			imageBtnClose:			'/images/lightbox-btn-close.gif',		// (string) Path and the name of the close btn
+			imageBlank:				'/images/lightbox-blank.gif'			// (string) Path and the name of a blank image (one pixel)
+		});
 	});
 	
 	var showChar = 100;
