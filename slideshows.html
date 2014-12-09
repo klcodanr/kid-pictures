@@ -1,0 +1,24 @@
+---
+layout: default
+title: Slideshows
+---
+
+<div id="message" class="box">
+	<h4>Slideshows</h4>
+	<p>
+		Click on a date to view a slideshow of the Klco Kids Photos of the Day for that month.
+	</p>
+	{% assign month = "" %}
+	<ul id="slideshows">
+		{% for message in site.posts %}
+			{% capture thisMonth %}{{ message.sentDate | date: %B }}{% endcapture %}
+			{% capture year %}{{ message.sentDate | date: %Y }}{% endcapture %}
+			{% if month != thisMonth %}
+				<li>
+					<a href="slideshow.html?date={{ year }}{{ message.sentDate | date: %m }}">{{ thisMonth }} {{ year }}</a>
+				</li>
+				{% capture month %}{{ thisMonth }}{% endcapture %}
+			{% endif %}
+		{% endfor %}
+	</ul>
+</div>

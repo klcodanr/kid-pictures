@@ -1,25 +1,20 @@
-#set($ex='.html')
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Sarah Picture of the Day | Slideshows</title>
+		<title>Sarah Picture of the Day | Page Not Found</title>
 		<meta content="Dan Klco" name="author" />
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
-		<link href="css/base.css" rel="stylesheet" />
-		<link href="css/skeleton.css" rel="stylesheet" />
-		<link href="css/layout.css" rel="stylesheet" />
-		<link href="css/jquery.lightbox-0.5.css" rel="stylesheet"  />
-		<link rel="shortcut icon" href="favicon.png" />
-		<link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon.png" />
-		<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
-		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
-		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-		<script type="text/javascript" src="js/jquery.lightbox-0.5.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
+		<link href="/css/base.css" rel="stylesheet" />
+		<link href="/css/skeleton.css" rel="stylesheet" />
+		<link href="/css/layout.css" rel="stylesheet" />
+		<link rel="shortcut icon" href="/favicon.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
 		<script type="text/javascript">
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-37209568-2']);
@@ -35,8 +30,8 @@
 		<div class="container">
 			<div class="fifteen columns content">
 				<div id="header" class="box">
-					<a href="./"><img src="images/sarah-header.png" /></a>
-					<h3>Sarah Picture of the Day Slideshows</h3>
+					<a href="./"><img src="/images/sarah-header.png" /></a>
+					<h3>Sarah Picture of the Day</h3>
 				</div>
 				<ul id="nav" class="box">
 					<li><a href="index.html">Home</a></li>
@@ -44,23 +39,10 @@
 					<li><a href="slideshows.html">Slideshow</a></li>
 				</ul>
 				<div id="message" class="box">
-					<h4>Slideshows</h4>
+					<h4>Not Found!</h4>
 					<p>
-						Click on a date to view a slideshow of the Sarah Photos of the Day for that month.
+						I'm sorry, the page you requested could not be found.  <a href="/">Go to Home page</a>
 					</p>
-					#set($month = '')
-					<ul id="slideshows">
-						#foreach( $message in $messages )
-							#set($thisMonth = $date.format('MMMM',$message.sentDate))
-							#set($thisYear = $date.format('yyyy',$message.sentDate))
-							#if($month != $thisMonth)
-								<li>
-									<a href="slideshow.html?date=$date.format('yyyyMM',$message.sentDate)">$thisMonth $thisYear</a>
-								</li>
-								#set($month = $thisMonth)
-							#end
-						#end
-					</ul>
 				</div>
 				<footer class="box">
 					<p>

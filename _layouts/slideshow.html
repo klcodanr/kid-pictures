@@ -1,55 +1,53 @@
-#set($ex='.html')
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Sarah Picture of the Day | Slideshow</title>
+		<title>{{ page.title }} | Klco Kids Picture of the Day</title>
 		<meta content="Dan Klco" name="author" />
 		<!--[if lt IE 9]>
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" />
-		<link rel="stylesheet" href="css/supersized.css" type="text/css"  />
-		<link rel="stylesheet" href="css/supersized.shutter.css" type="text/css" />
-		<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-		<script type="text/javascript" src="js/jquery.easing.min.js"></script>
-		<script type="text/javascript" src="js/supersized.3.2.7.min.js"></script>
-		<script type="text/javascript" src="js/supersized.shutter.js"></script>
+		<link rel="stylesheet" href="/css/supersized.css" type="text/css"  />
+		<link rel="stylesheet" href="/css/supersized.shutter.css" type="text/css" />
+		<script type="text/javascript" src="/js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="/js/jquery.easing.min.js"></script>
+		<script type="text/javascript" src="/js/supersized.3.2.7.min.js"></script>
+		<script type="text/javascript" src="/js/supersized.shutter.js"></script>
 		<link rel="shortcut icon" href="favicon.png" />
-		<link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon.png" />
-		<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png" />
-		<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-touch-icon.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-114x114.png" />
 		<script type="text/javascript">
 			jQuery(function($){
-				#set($month = '')
+				{% assign month="" %}
 				var slideshows = {
 					'empty': [
-					#foreach( $message in $messages )
-						#set($thisMonth = $date.format('MMMM',$message.sentDate))
-						#set($thisYear = $date.format('yyyy',$message.sentDate))
-						#if($month != $thisMonth)
+					{% for message in site.posts %}
+						{% capture thisMonth %}{{ message.sentDate | date: %B }}{% endcapture %}
+						{% capture year %}{{ message.sentDate | date: %Y }}{% endcapture %}
+						{% if month != thisMonth %}
 							],
-							'$date.format('yyyyMM',$message.sentDate)' : [
-							#set($month = $thisMonth)
-						#end
-						#foreach( $attachment in $message.attachments )
-							#set($name = $attachment.name.replace("#", "%23"))
-							#set($name = $name.replace("?", "%3F"))
-							{image: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/web-$name", title: "Picture of the Day from $date.format('MMM d, yyyy',$message.sentDate)", thumb: "$date.format('yyyy-MM-dd-HH-mm-ss',$message.sentDate)/thumbnail-$name" },
-						#end
-					#end
+							'{{ year }}{{ message.sentDate | date: %m }}' : [
+							{% capture month %}{{ thisMonth }}{% endcapture %}
+						{% endif %}
+						{% for attachment in message.attachments %}
+							{% capture attachment %}{{ attachment | replace:'#','%23' | replace:'?','%3F' }}{% endcapture %}
+							{image: "/images/posts/{{ sentDate | date: %F-%H-%M }}/web-{{attachment}}", title: "Picture of the Day from {{ sentDate | date: %B %d, %Y}}", thumb: "/images/posts/{{ sentDate | date: %F-%H-%M }}/thumbnail-{{attachment}}" },
+						{% endfor %}
+					{% endfor %}
 					]
 				}
-				#set($month = '')
+				{% assign month="" %}
 				var titles = {
-					#foreach( $message in $messages )
-						#set($thisMonth = $date.format('MMMM',$message.sentDate))
-						#set($thisYear = $date.format('yyyy',$message.sentDate))
-						#if($month != $thisMonth)
-							'$date.format('yyyyMM',$message.sentDate)' : ' from $thisMonth $thisYear',
-							#set($month = $thisMonth)
-						#end
-					#end
+					{% for message in site.posts %}
+						{% capture thisMonth %}{{ message.sentDate | date: %B }}{% endcapture %}
+						{% capture year %}{{ message.sentDate | date: %Y }}{% endcapture %}
+						{% if month != thisMonth %}
+							'{{ year }}{{ message.sentDate | date: %m }}' : ' from $thisMonth $thisYear',
+							{% capture month %}{{ thisMonth }}{% endcapture %}
+						{% endif %}
+					{% endfor %}
 				}
 				var date = window.location.search.substr(1).split('=')[1];
 				document.title = document.title + titles[date];
@@ -71,7 +69,7 @@
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
 		</script>
-		
+
 		<style type="text/css">
 			#back-container {
 				margin: 15px;
@@ -79,7 +77,7 @@
 				display:inline;
 				float:left;
 				clear:both;
-				background:url('images/bg-black.png');
+				background:url('/images/bg-black.png');
 			}
 			#back-container a{
 				font-weight: bold;
@@ -96,7 +94,7 @@
 	<body>
 		<div id="back-container">
 			<h3 id="title">Slideshow </h3>
-			<a href="slideshows.html">&lt;&lt; Go Back</a>
+			<a href="/slideshows.html">&lt;&lt; Go Back</a>
 		</div>
 		<div id="prevthumb"></div>
 		<div id="nextthumb"></div>
@@ -111,12 +109,12 @@
 		</div>
 		<div id="controls-wrapper" class="load-item">
 			<div id="controls">
-				<a id="play-button"><img id="pauseplay" src="images/pause.png"/></a>
+				<a id="play-button"><img id="pauseplay" src="/images/pause.png"/></a>
 				<div id="slidecounter">
 					<span class="slidenumber"></span> / <span class="totalslides"></span>
 				</div>
 				<div id="slidecaption"></div>
-				<a id="tray-button"><img id="tray-arrow" src="images/button-tray-up.png"/></a>
+				<a id="tray-button"><img id="tray-arrow" src="/images/button-tray-up.png"/></a>
 			</div>
 		</div>
 	</body>

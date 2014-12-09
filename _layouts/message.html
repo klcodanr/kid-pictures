@@ -1,0 +1,23 @@
+--
+layout: default
+---
+
+<div id="message" class="box">
+	{{ content }}
+	<p>
+		<strong>From: {{page.sender}}<strong>
+	</p>
+</div>
+{% if page.attachments.size > 0 %}
+	<ul class="box images">
+		{% for attachment in page.attachments %}
+			{% capture attachment %}{{ attachment | replace:'#','%23' | replace:'?','%3F' }}{% endcapture %}
+			<li>
+				<a href="/images/posts/{{ sentDate | date: %F-%H-%M }}/web-{{attachment}}"
+					title="Picture of the Day from {{ sentDate | date: %B %d, %Y}} {{ attachment }} &lt;a href=&quot;/images/posts/{{ sentDate | date: %F-%H-%M }}/{{attachment}}&quot;&gt;Download Original&lt;/a%gt;">
+					<img src="/images/posts/{{ sentDate | date: %F-%H-%M }}/thumbnail-{{attachment}}" />
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}
