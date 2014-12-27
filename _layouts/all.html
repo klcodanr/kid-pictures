@@ -4,7 +4,7 @@ layout: default
 
 <div id="message" class="box">
 	<ul id="messages">
-		{% for message in site.posts %}
+		{% for message in paginator.posts %}
 			<li class="item">
 				<div class="subheader box">
 					<h3><a href="{{ message.url }}">From {{ message.sender }} on {{ message.sentDate | date: "%B %d, %Y" }}</a></h3>
@@ -28,4 +28,19 @@ layout: default
 			</li>
 		{% endfor %}
 	</ul>
+	{% if paginator.total_pages != 1 %}
+		<div class="nine columns pagination">
+			{% if paginator.previous_page %}
+				{% if paginator.previous_page == 1 %}
+					<a href="/" class="previous">Previous</a>
+				{% else %}
+					<a href="/page{{paginator.previous_page}}/" class="previous">Previous</a>
+				{% endif %}
+			{% endif %}
+			<span class="page_number ">Page: {{paginator.page}} of {{paginator.total_pages}}</span>
+			{% if paginator.next_page %}
+				<a href="/page{{paginator.next_page}}/" class="next">Next</a>
+			{% endif %}
+		</div>
+	{% endif %}
 </div>
